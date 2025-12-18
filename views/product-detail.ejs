@@ -19,16 +19,19 @@
       </div>
     </div>
     <div class="col-md-7">
-      <div class="shadow-sm p-4 rounded-4 bg-white">
+      <div class="shadow-sm p-4 rounded-4 bg-white border-0 card">
         <p class="lead"><%= product.description %></p>
-        <p class="fs-4 fw-bold text-primary">$<%= product.price.toFixed(2) %></p>
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="price-tag"><span class="amount text-primary">$<%= product.price.toFixed(2) %></span><span class="unit">/ trọn bộ</span></div>
+          <span class="badge text-bg-warning text-dark">Print-ready</span>
+        </div>
         <div class="d-flex gap-3 flex-wrap">
           <button class="btn btn-primary">Mua ngay (demo)</button>
           <a href="/membership" class="btn btn-outline-dark">Trở thành member</a>
         </div>
         <div class="mt-4">
           <h3 class="h6 text-uppercase text-muted">Lợi ích</h3>
-          <ul class="list-unstyled mb-0">
+          <ul class="list-unstyled mb-0 feature-list">
             <li>✔️ File in ấn chất lượng cao (PDF, PNG hoặc template)</li>
             <li>✔️ Kịch bản chi tiết để chạy workshop / coaching</li>
             <li>✔️ License thương mại trong phạm vi agency</li>
