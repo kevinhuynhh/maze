@@ -1,0 +1,186 @@
+:root {
+  --bg-gradient: radial-gradient(circle at 20% 20%, #f0f8ff, #f8f9fb 40%),
+    radial-gradient(circle at 80% 0%, #f3f0ff, #f8f9fb 35%), #f8f9fb;
+  --primary: #6c5ce7;
+  --primary-dark: #4b3cc4;
+  --muted: #6b7280;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: #111827;
+}
+
+.navbar {
+  backdrop-filter: blur(12px);
+  background: rgba(17, 24, 39, 0.92) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 20%, rgba(108, 92, 231, 0.15), transparent 40%),
+    radial-gradient(circle at 20% 0%, rgba(16, 185, 129, 0.12), transparent 35%);
+  z-index: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.badge.text-bg-warning {
+  font-size: 0.85rem;
+  box-shadow: 0 10px 40px rgba(253, 224, 71, 0.25);
+}
+
+.hero-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.bg-cover {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+}
+
+.card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #0d6efd;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.35);
+}
+
+.card-img-top {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  letter-spacing: -0.2px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #3a2fa6);
+}
+
+.btn-outline-dark:hover,
+.btn-outline-primary:hover {
+  transform: translateY(-1px);
+}
+
+.feature-list li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  color: var(--muted);
+}
+
+.section-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+  color: #111827;
+}
+
+.section-heading::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e, #0ea5e9);
+  box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.2);
+}
+
+.price-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: #111827;
+}
+
+.price-tag .amount {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.price-tag .unit {
+  color: var(--muted);
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, #fef3c7, #e0f2fe);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 18px;
+}
+
+.stat-pill {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(17, 24, 39, 0.05);
+  color: #111827;
+  font-weight: 600;
+}
+
+.pricing-card {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.pricing-card.highlight {
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  box-shadow: 0 20px 60px rgba(108, 92, 231, 0.2);
+}
+
+.pricing-card .card-header {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(16, 185, 129, 0.1));
+}
+
+.table > :not(caption) > * > * {
+  padding: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .hero-card {
+    margin-top: 16px;
+  }
+}

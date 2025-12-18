@@ -1,0 +1,19 @@
+{
+  "name": "maze",
+  "version": "1.0.0",
+  "description": "Prompt printable storefront with admin-only publishing",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": ["prompt", "printable", "membership"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.1",
+    "uuid": "^10.0.0"
+  }
+}

@@ -1,0 +1,100 @@
+<%- include('partials/header', { isAdmin }) %>
+<section class="container py-5">
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <p class="badge text-bg-success">Membership</p>
+      <h1 class="h3 fw-bold">Tham gia thư viện prompt printable</h1>
+      <p class="text-muted">
+        Nhận toàn bộ prompt, template workshop, file in ấn với một membership duy nhất. Admin phát hành,
+        cập nhật hàng tuần.
+      </p>
+      <div class="row g-3 mt-1">
+        <div class="col-md-6">
+          <div class="card pricing-card h-100 shadow-sm">
+            <div class="card-header border-0">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-primary">Cá nhân</span>
+                <small class="text-muted">Starter</small>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="text-muted">Dành cho cá nhân làm nội dung, coach nhỏ.</p>
+              <div class="price-tag mb-3"><span class="amount text-primary">$19</span><span class="unit">/ tháng</span></div>
+              <ul class="list-unstyled text-muted feature-list mb-0">
+                <li>✔️ Truy cập toàn bộ prompt printable</li>
+                <li>✔️ Tải xuống PDF, PNG, Notion template</li>
+                <li>✔️ Cập nhật 2 lần/tháng</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card pricing-card highlight h-100 shadow-sm">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-dark">Best for team</span>
+                <small class="text-muted">Agency</small>
+              </div>
+              <span class="badge text-bg-warning text-dark">Phổ biến</span>
+            </div>
+            <div class="card-body">
+              <p class="text-muted">Dùng cho team marketing, studio, training.</p>
+              <div class="price-tag mb-3"><span class="amount text-primary">$39</span><span class="unit">/ tháng</span></div>
+              <ul class="list-unstyled text-muted feature-list mb-0">
+                <li>✔️ License thương mại cho client</li>
+                <li>✔️ Bộ deck trình chiếu & workshop kit</li>
+                <li>✔️ Cập nhật hàng tuần + priority support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gradient-card p-3 mt-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="badge bg-dark">Admin only</div>
+          <div>
+            <div class="fw-semibold">Một nguồn duy nhất, kiểm soát chất lượng</div>
+            <small class="text-muted">Không phải marketplace, mọi prompt do admin biên tập và phát hành.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="card shadow-lg p-4">
+        <% if (joined) { %>
+        <div class="alert alert-success">
+          ✅ Cảm ơn <strong><%= name %></strong> đã đăng ký gói <strong><%= plan %></strong>! Chúng tôi sẽ liên
+          hệ qua email với hướng dẫn chi tiết.
+        </div>
+        <% } else { %>
+        <h3 class="h5">Đăng ký ngay</h3>
+        <p class="text-muted small">Chỉ cần email, chúng tôi sẽ gửi hướng dẫn thanh toán & tài nguyên.</p>
+        <form method="post">
+          <div class="mb-3">
+            <label class="form-label">Tên của bạn</label>
+            <input class="form-control" name="name" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" name="email" type="email" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Gói</label>
+            <select class="form-select" name="plan" required>
+              <option value="Starter">Starter - $19/tháng</option>
+              <option value="Agency">Agency - $39/tháng</option>
+            </select>
+          </div>
+          <button class="btn btn-primary w-100" type="submit">Tham gia ngay</button>
+        </form>
+        <% } %>
+        <div class="mt-4">
+          <small class="text-muted">
+            Toàn bộ dữ liệu được lưu an toàn. Bạn sẽ nhận email hướng dẫn sau khi đăng ký.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>
