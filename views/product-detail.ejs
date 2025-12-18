@@ -1,0 +1,41 @@
+<%- include('partials/header', { isAdmin }) %>
+<section class="container py-5">
+  <div class="row g-4">
+    <div class="col-md-5">
+      <div class="card shadow-sm border-0">
+        <div class="card-img-top bg-cover rounded-top" style="background-image: url('<%= product.coverImage %>')"></div>
+        <div class="card-body">
+          <span class="badge bg-secondary mb-2"><%= product.category %></span>
+          <h1 class="h4 fw-bold"><%= product.title %></h1>
+          <p class="text-muted mb-1">Chứa: <%= product.deliverable %></p>
+          <% if (product.tags?.length) { %>
+          <p class="mb-0">
+            <% product.tags.forEach(tag => { %>
+            <span class="badge bg-light text-dark me-1">#<%= tag %></span>
+            <% }); %>
+          </p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="shadow-sm p-4 rounded-4 bg-white">
+        <p class="lead"><%= product.description %></p>
+        <p class="fs-4 fw-bold text-primary">$<%= product.price.toFixed(2) %></p>
+        <div class="d-flex gap-3 flex-wrap">
+          <button class="btn btn-primary">Mua ngay (demo)</button>
+          <a href="/membership" class="btn btn-outline-dark">Trở thành member</a>
+        </div>
+        <div class="mt-4">
+          <h3 class="h6 text-uppercase text-muted">Lợi ích</h3>
+          <ul class="list-unstyled mb-0">
+            <li>✔️ File in ấn chất lượng cao (PDF, PNG hoặc template)</li>
+            <li>✔️ Kịch bản chi tiết để chạy workshop / coaching</li>
+            <li>✔️ License thương mại trong phạm vi agency</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

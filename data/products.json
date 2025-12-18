@@ -1,0 +1,22 @@
+[
+  {
+    "id": "p1",
+    "title": "AI Storytelling Prompt Pack",
+    "price": 12.0,
+    "category": "Writing",
+    "tags": ["creative", "story", "printable"],
+    "description": "A curated set of storytelling prompts formatted for print and PDF handouts.",
+    "coverImage": "/images/storytelling.svg",
+    "deliverable": "PDF printable prompts"
+  },
+  {
+    "id": "p2",
+    "title": "Business Ideation Blueprint",
+    "price": 18.0,
+    "category": "Business",
+    "tags": ["startup", "workshop"],
+    "description": "Framework-style prompts that guide teams through market, product, and launch planning.",
+    "coverImage": "/images/ideation.svg",
+    "deliverable": "Notion template and PDF workbook"
+  }
+]

@@ -1,0 +1,118 @@
+<%- include('../partials/header', { isAdmin: true }) %>
+<section class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <p class="badge text-bg-primary mb-2">Quản trị</p>
+      <h1 class="h4 fw-bold">Bảng điều khiển</h1>
+      <p class="text-muted">Chỉ admin có quyền đăng bán và cập nhật nội dung.</p>
+    </div>
+    <a href="/admin/logout" class="btn btn-outline-danger">Đăng xuất</a>
+  </div>
+  <div class="row g-4">
+    <div class="col-lg-5">
+      <div class="card shadow-sm p-4">
+        <h2 class="h5">Thêm prompt mới</h2>
+        <form method="post" action="/admin/products">
+          <div class="mb-3">
+            <label class="form-label">Tiêu đề</label>
+            <input class="form-control" name="title" required />
+          </div>
+          <div class="row g-2">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Giá (USD)</label>
+              <input class="form-control" name="price" type="number" step="0.01" required />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Danh mục</label>
+              <input class="form-control" name="category" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Mô tả</label>
+            <textarea class="form-control" name="description" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Thẻ (phân tách dấu phẩy)</label>
+            <input class="form-control" name="tags" placeholder="ai, printable, workshop" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Gói / deliverable</label>
+            <input class="form-control" name="deliverable" placeholder="PDF, slide, notion" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Ảnh bìa (URL)</label>
+            <input class="form-control" name="coverImage" placeholder="/images/prompt.jpg" />
+          </div>
+          <button class="btn btn-primary w-100" type="submit">Xuất bản</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="card shadow-sm p-4 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h5 mb-0">Sản phẩm hiện có</h2>
+          <span class="text-muted small"><%= products.length %> prompt</span>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th>Tiêu đề</th>
+                <th>Giá</th>
+                <th>Danh mục</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% products.forEach((product) => { %>
+              <tr>
+                <td class="fw-semibold"><%= product.title %></td>
+                <td>$<%= product.price.toFixed(2) %></td>
+                <td><%= product.category %></td>
+                <td class="text-end">
+                  <form method="post" action="/admin/products/<%= product.id %>/delete" onsubmit="return confirm('Xóa prompt này?');">
+                    <button class="btn btn-sm btn-outline-danger">Xóa</button>
+                  </form>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card shadow-sm p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h5 mb-0">Đăng ký membership gần đây</h2>
+          <span class="text-muted small"><%= memberships.length %> đăng ký</span>
+        </div>
+        <% if (memberships.length === 0) { %>
+        <p class="text-muted">Chưa có đăng ký.</p>
+        <% } else { %>
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Gói</th>
+                <th>Ngày</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% memberships.forEach((member) => { %>
+              <tr>
+                <td><%= member.name %></td>
+                <td><%= member.email %></td>
+                <td><%= member.plan %></td>
+                <td><%= new Date(member.createdAt).toLocaleDateString('vi-VN') %></td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('../partials/footer') %>
