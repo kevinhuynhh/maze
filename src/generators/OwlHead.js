@@ -1,4 +1,4 @@
-import { BaseAnimal } from './BaseAnimal'
+import { BaseAnimal } from './BaseAnimal.js'
 
 export class OwlHead extends BaseAnimal {
   defineKeypoints() {
